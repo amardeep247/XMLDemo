@@ -14,17 +14,17 @@
             <b>From:</b> <span id="from"></span><br>  
             <b>Message:</b> <span id="message"></span>  
             <script>  
-                txt1="<note>";  
-                txt2="<to>Roll #1</to>";  
-                txt3="<from>MCA Coordinator</from>";  
-                txt4="<body>\n  Dear Students,\nI hope this message finds you well. \n\
+                str1="<note>";  
+                str2="<to>Roll #1</to>";  
+                str3="<from>MCA Coordinator</from>";  
+                str4="<body>\n  Dear Students,\nI hope this message finds you well. \n\
                        I would like to inform you that there will be a surprise test coming up soon to evaluate your understanding on Advanced Java topices covered in the class.!</body>";  
-                txt5="</note>";  
-                txt=txt1+txt2+txt3+txt4+txt5;
+                str5="</note>";  
+                str=str1+str2+str3+str4+str5;
 
                 
                  parser=new DOMParser();  
-                 xmlDoc=parser.parseFromString(txt,"text/xml");  
+                 xmlDoc=parser.parseFromString(str,"text/xml");  
                  
                 document.getElementById("to").innerHTML=xmlDoc.getElementsByTagName("to")[0].childNodes[0].nodeValue;  
                 document.getElementById("from").innerHTML=xmlDoc.getElementsByTagName("from")[0].childNodes[0].nodeValue;  
