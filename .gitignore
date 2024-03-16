@@ -1,0 +1,18 @@
+# Ignore build output directories
+bin/
+target/
+dist/
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+*.iml
+
+# Ignore compiled binaries and libraries
+*.class
+*.jar
+*.war
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db

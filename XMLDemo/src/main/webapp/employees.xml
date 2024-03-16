@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+
+<company
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='employee.xsd'>
+    <employee id="1">
+        <name>John</name>
+        <age>25</age>
+        <department>Accounting</department>
+        <salary>50000</salary>
+    </employee>
+    <employee id="2">
+       <name>Harry</name>
+        <age>25</age>
+        <department>Finance</department>
+        <salary>4000</salary>
+    </employee>
+  
+
+</company>
+
