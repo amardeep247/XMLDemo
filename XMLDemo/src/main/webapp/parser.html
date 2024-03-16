@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>XML Parser</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    </head>
+    <body>
+        <h1>Important Note</h1>  
+        <div>  
+            <b>To:</b> <span id="to"></span><br>  
+           
+            <script>  
+                str1="<note>";  
+                str2="<to>Roll #1</to>";
+                str3="</note>"; 
+                str=str1+str2+str3;
+
+
+                
+                 parser=new DOMParser();  
+                 xmlDoc=parser.parseFromString(str,"text/xml");  
+                 
+                document.getElementById("to").innerHTML=xmlDoc.getElementsByTagName("to")[0].childNodes[0].nodeValue;  
+                document.getElementById("from").innerHTML=xmlDoc.getElementsByTagName("from")[0].childNodes[0].nodeValue;  
+                var bodyContent = xmlDoc.getElementsByTagName("body")[0].textContent;
+                bodyContent = bodyContent.replace(/\n/g, "<br>");
+                document.getElementById("message").innerHTML = bodyContent;
+             </script> 
+        </div>  
+    </body>
+</html>

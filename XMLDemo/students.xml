@@ -1,1 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><student id="1"><course>MCA</course><subject>Advanced Java</subject><!--We are learning about XMLs--></student>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE students SYSTEM "students.dtd">
+<students>
+    <student>
+        <id>1</id>
+        <name>Raj</name>
+        <grade>A</grade>
+    </student>
+    <student>
+        <id>2</id>
+        <name>Deb</name>
+        <grade>B</grade>
+    </student>
+    
+</students>
