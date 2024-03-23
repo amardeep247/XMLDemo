@@ -17,32 +17,43 @@ import org.w3c.dom.Text;
  */
 public class SimpleXmlDemo {
     public static void main(String[] args) throws Exception {
+        
     // Create document
     Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 
     // Create root element with attribute
-    Element book = document.createElement("student");
-    book.setAttribute("id", "1");
-    document.appendChild(book);
-
-    // Create child elements with nested text nodes
-    Element title = document.createElement("course");
-    Text titleText = document.createTextNode("MCA");
-    title.appendChild(titleText);
-    book.appendChild(title);
-
-    Element author = document.createElement("subject");
-    Text authorText = document.createTextNode("Advanced Java");
-    author.appendChild(authorText);
-    book.appendChild(author);
-
-    // Add comments
-    book.appendChild(document.createComment("We are learning about XMLs"));
-
+     Element students = document.createElement("students");
+     document.appendChild(students);
+    
+    addStudentNode(document, students,1,"ABC","A");
+    addStudentNode(document, students,2,"XYZ","B");
+    
     // Write to XML file
     TransformerFactory transformerFactory = TransformerFactory.newInstance();
     transformerFactory.newTransformer().transform(new DOMSource(document), new StreamResult("students.xml"));
 
     System.out.println("XML file created successfully!");
   }
+    
+    public static void addStudentNode(Document document,Element rootElement,int id,String name,String grade){
+        
+         Element student = document.createElement("student");         
+         
+         Element childNode = document.createElement("id");
+         Text value = document.createTextNode(String.valueOf(id));
+         childNode.appendChild(value);
+         student.appendChild(childNode);
+         
+         childNode = document.createElement("name");
+         value = document.createTextNode(name);
+         childNode.appendChild(value);
+         student.appendChild(childNode);
+         
+         childNode = document.createElement("grade");
+         value = document.createTextNode(grade);
+         childNode.appendChild(value);
+         student.appendChild(childNode);
+         
+        rootElement.appendChild(student);
+    }
 }
