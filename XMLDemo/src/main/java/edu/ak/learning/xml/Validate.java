@@ -4,30 +4,30 @@
  */
 package edu.ak.learning.xml;
 
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+
 /**
  *
  * @author amard
  */
-import javax.xml.parsers.*;
-import org.xml.sax.*;
-import org.xml.sax.helpers.*;
-
-public class XMLValidatorDTD extends DefaultHandler {
-    
+public class Validate extends DefaultHandler {
+ 
     public static void main(String[] args) {
-        String xmlFile = "students.xml"; 
         
-        try {
-            XMLValidatorDTD validator = new XMLValidatorDTD();
-            validator.validate(xmlFile);
-            System.out.println("Validation is sucessful!");
-        } catch (Exception e) {
-             System.out.println("Validation failed!"); 
-            e.printStackTrace();
-        }
+        Validate val = new Validate();
+        val.validate();
+      
     }
-
-    public void validate(String xmlFile) throws Exception {
+    
+    public void validate(){
+        try{
+         String xmlFile = "students1.xml"; 
         SAXParserFactory factory = SAXParserFactory.newInstance();
         factory.setValidating(true);
         factory.setNamespaceAware(true);
@@ -37,13 +37,19 @@ public class XMLValidatorDTD extends DefaultHandler {
         reader.setErrorHandler(this);
 
         reader.parse(new InputSource(xmlFile));
+        }catch(Exception ex){
+            System.out.println("validateion falied");
+            ex.printStackTrace();
+        }
     }
 
     @Override
     public void error(SAXParseException e) throws SAXException {
-        System.out.println("Error: " + e.getMessage());
+         System.out.println("Error: " + e.getMessage());
         throw new SAXException("Error encountered during validation");
     }
 
-   
+  
+    
+    
 }

@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><students><student><id>1</id><name>John</name><grade>A</grade></student></students>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><students><student><id>1</id></student><student><id>2</id></student></students>
